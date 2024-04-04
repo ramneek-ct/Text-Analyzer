@@ -24,9 +24,10 @@ function digitCount(text){
 }
 
 function vowelCount(newtext){
+    let vowels = ['a','e','i','o','u'];
     let vowelcount = 0;
     for (let i = 0; i < newtext.length; i++){
-        if (newtext.charAt(i) == "a"|| newtext.charAt(i) == "e"|| newtext.charAt(i) == "i"|| newtext.charAt(i) == "o"|| newtext.charAt(i) == "u"){
+        if (vowels.includes(newtext[i])){
             vowelcount++;
         }
     }
@@ -34,10 +35,13 @@ function vowelCount(newtext){
 }
 
 function consonantCount(newtext){
+    let vowels = ['a','e','i','o','u'];
     let consonantcount = 0;
     for (let i = 0; i < newtext.length; i++){
         if (newtext.charAt(i) >= "a" && newtext.charAt(i) <= "z"){
-            if(newtext.charAt(i) != "a" && newtext.charAt(i) != "e" && newtext.charAt(i) != "i" && newtext.charAt(i) != "o" && newtext.charAt(i) != "u"){
+            if(vowels.includes(newtext.charAt(i))){
+                continue;
+            }else{
                 consonantcount++;
             }
         }
@@ -62,7 +66,7 @@ function wordCount(text){
 }
 
 function avgWordLength(text){
-    let words = text.split(" ");
+    let words = text.trim().split(" ");
 
     let charLength = 0 ;
 
